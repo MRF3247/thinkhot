@@ -5046,6 +5046,340 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "dailynous",
+      "name": "Daily Nous",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://dailynous.com/feed/",
+        "_aihot": {
+          "initialBackfillLimit": 5
+        }
+      },
+      "tier": "T1_5",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "学术机构",
+        "哲学"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "ndpr",
+      "name": "Notre Dame Philosophical Reviews",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://ndpr.nd.edu/reviews.atom",
+        "_aihot": {
+          "initialBackfillLimit": 5
+        }
+      },
+      "tier": "T1",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "书评",
+        "哲学"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "thephilosopher",
+      "name": "The Philosopher",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.thephilosopher1923.org/blog-feed.xml",
+        "_aihot": {
+          "initialBackfillLimit": 5
+        }
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "思想媒体",
+        "哲学"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "philosophynow",
+      "name": "Philosophy Now",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://philosophynow.org/rss",
+        "_aihot": {
+          "initialBackfillLimit": 5
+        }
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "思想媒体",
+        "哲学"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "3ammagazine",
+      "name": "3:AM Magazine",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.3ammagazine.com/3am/feed/",
+        "_aihot": {
+          "initialBackfillLimit": 5
+        }
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "思想媒体",
+        "哲学"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "brains-blog",
+      "name": "Brains（心灵哲学博客）",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://philosophyofbrains.com/feed/",
+        "_aihot": {
+          "initialBackfillLimit": 5
+        }
+      },
+      "tier": "T1_5",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "学术机构",
+        "哲学",
+        "心理学"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "splintered-mind",
+      "name": "The Splintered Mind",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "http://schwitzsplinters.blogspot.com/feeds/posts/default",
+        "_aihot": {
+          "initialBackfillLimit": 5
+        }
+      },
+      "tier": "T2",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "思想媒体",
+        "哲学",
+        "心理学"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "tandf-ajp",
+      "name": "Australasian Journal of Philosophy",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.tandfonline.com/feed/rss/rajp20",
+        "_aihot": {
+          "initialBackfillLimit": 5
+        }
+      },
+      "tier": "T1",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": [
+        "期刊",
+        "哲学"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "cr-ergo",
+      "name": "Ergo",
+      "kind": "json_list",
+      "config": {
+        "url": "https://api.crossref.org/journals/2330-4014/works?mailto=thinkhot@example.com&filter=from-pub-date:2025-06-10,type:journal-article&sort=published&order=desc&rows=40&select=DOI,title,abstract,created,container-title,type",
+        "itemsPath": "message.items",
+        "titlePaths": [
+          "title.0"
+        ],
+        "summaryPaths": [
+          "abstract"
+        ],
+        "summaryIsBody": true,
+        "publishedAtPath": "created.date-time",
+        "externalIdPath": "DOI",
+        "urlTemplate": "https://doi.org/{DOI}",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "erratum",
+            "corrigendum",
+            "author correction",
+            "correction to",
+            "retraction",
+            "retracted",
+            "editorial board",
+            "table of contents",
+            "in this issue",
+            "issue information",
+            "index to volume",
+            "front matter",
+            "back matter",
+            "abstracts for",
+            "issue cover",
+            "title pending"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 5
+        },
+        "authorPaths": [
+          "author.0.family"
+        ]
+      },
+      "tier": "T1",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": [
+        "期刊",
+        "哲学"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "cr-philosophers-imprint",
+      "name": "Philosophers' Imprint",
+      "kind": "json_list",
+      "config": {
+        "url": "https://api.crossref.org/journals/1533-628X/works?mailto=thinkhot@example.com&filter=from-pub-date:2025-06-10,type:journal-article&sort=published&order=desc&rows=40&select=DOI,title,abstract,created,container-title,type",
+        "itemsPath": "message.items",
+        "titlePaths": [
+          "title.0"
+        ],
+        "summaryPaths": [
+          "abstract"
+        ],
+        "summaryIsBody": true,
+        "publishedAtPath": "created.date-time",
+        "externalIdPath": "DOI",
+        "urlTemplate": "https://doi.org/{DOI}",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "erratum",
+            "corrigendum",
+            "author correction",
+            "correction to",
+            "retraction",
+            "retracted",
+            "editorial board",
+            "table of contents",
+            "in this issue",
+            "issue information",
+            "index to volume",
+            "front matter",
+            "back matter",
+            "abstracts for",
+            "issue cover",
+            "title pending"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 5
+        },
+        "authorPaths": [
+          "author.0.family"
+        ]
+      },
+      "tier": "T1",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": [
+        "期刊",
+        "哲学"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "cr-japa",
+      "name": "Journal of the American Philosophical Association",
+      "kind": "json_list",
+      "config": {
+        "url": "https://api.crossref.org/journals/2053-4477/works?mailto=thinkhot@example.com&filter=from-pub-date:2025-06-10,type:journal-article&sort=published&order=desc&rows=15&select=DOI,title,abstract,created,container-title,type",
+        "itemsPath": "message.items",
+        "titlePaths": [
+          "title.0"
+        ],
+        "summaryPaths": [
+          "abstract"
+        ],
+        "summaryIsBody": true,
+        "publishedAtPath": "created.date-time",
+        "externalIdPath": "DOI",
+        "urlTemplate": "https://doi.org/{DOI}",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "erratum",
+            "corrigendum",
+            "author correction",
+            "correction to",
+            "retraction",
+            "retracted",
+            "editorial board",
+            "table of contents",
+            "in this issue",
+            "issue information",
+            "index to volume",
+            "front matter",
+            "back matter",
+            "abstracts for",
+            "issue cover"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 5
+        },
+        "authorPaths": [
+          "author.0.family"
+        ]
+      },
+      "tier": "T1",
+      "first_party": false,
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": [
+        "期刊",
+        "哲学"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }
