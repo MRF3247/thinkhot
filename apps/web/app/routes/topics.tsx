@@ -5,7 +5,7 @@ import { pageMeta } from "../lib/seo";
 interface TopicSummary {
   slug: string;
   name: string;
-  group: "company" | "field" | "genre";
+  group: "company" | "field" | "genre" | "pitch";
   definition: string;
   total: number;
   recent: number;
@@ -18,7 +18,7 @@ export async function loader({ request }: { request: Request }) {
 }
 
 export function meta() {
-  return pageMeta({ title: "主题", description: "按机构与公司、疾病与方向、内容形态聚合的医学主题页：FDA、NEJM、肿瘤、临床试验、医保与支付等方向。", path: "/topics", image: "/og/pages/topics.png" });
+  return pageMeta({ title: "主题", description: "按机构与期刊、学科与方向、内容形态聚合的思想主题页：NBER、Mind、哲学、社会学、调查数据、公共讨论等方向。", path: "/topics", image: "/og/pages/topics.png" });
 }
 
 export function headers() {
@@ -26,9 +26,10 @@ export function headers() {
 }
 
 const GROUPS = [
-  { key: "company", name: "公司与模型", blurb: "按厂商与模型系追踪：谁发了什么、又赢了哪一局" },
-  { key: "field", name: "技术方向", blurb: "按技术领域深挖：Agent、多模态、具身智能……" },
-  { key: "genre", name: "内容形态", blurb: "按内容类型浏览：论文、教程、观点、政策……" },
+  { key: "company", name: "机构与期刊", blurb: "按研究机构、学会与刊物追踪：谁发布了什么、哪家刊物在推什么" },
+  { key: "field", name: "学科与方向", blurb: "按学科深挖：哲学、社会学、心理学、人类学、政治学、经济学、历史学……" },
+  { key: "genre", name: "内容形态", blurb: "按内容类型浏览：论文与预印本、调查数据、理论工作、长文、书评、访谈……" },
+  { key: "pitch", name: "选题池", blurb: "按能不能做成一条内容筛：能讲给外行听、有反直觉或冲突、有具体的人和场景" },
 ] as const;
 
 export default function TopicsPage() {
@@ -36,9 +37,9 @@ export default function TopicsPage() {
   return (
     <div className="pb-10">
       <header className="pb-2 pt-5 lg:pt-1">
-        <h1 className="text-[24px] font-semibold leading-[1.3] text-ink">按主题看医学</h1>
+        <h1 className="text-[24px] font-semibold leading-[1.3] text-ink">按主题看思想</h1>
         <p className="mt-1.5 text-[13px] leading-relaxed text-ink-3">
-          按机构与公司、疾病与方向、内容形态浏览 <span className="num">{topics.length}</span> 个主题，持续汇集近期焦点与精选。
+          按机构与期刊、学科与方向、内容形态、选题池浏览 <span className="num">{topics.length}</span> 个主题，持续汇集近期焦点与精选。
         </p>
       </header>
       {GROUPS.map((g) => (

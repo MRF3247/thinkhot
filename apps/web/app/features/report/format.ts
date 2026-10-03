@@ -34,7 +34,7 @@ export function monthRange(key: string): [string, string] {
   return [`${key}-01`, ymd(new Date(Date.UTC(y, m, 0)))];
 }
 
-/** "这一天的 4 件医学大事" / "本周的 12 件医学大事" / "8 月的 20 件医学大事". */
+/** "这一天的 4 件大事" / "本周的 12 件大事" / "8 月的 20 件大事". */
 export function headline(kind: ReportKind, key: string, count: number): string {
   if (kind === "daily") return `这一天的 ${count} 件${withSubject("大事")}`;
   if (kind === "weekly") return `本周的 ${count} 件${withSubject("大事")}`;

@@ -25,6 +25,8 @@ export const SIDEBAR: Array<{ title: string; items: NavItem[] }> = [
       { to: "/hot", label: "热点榜", icon: IconFlame },
       { to: "/daily", label: withSubject("日报"), icon: IconDoc },
       { to: "/topics", label: "主题", icon: IconGrid },
+      // 选题榜：指向「强选题」主题页（行业包 topics.json 里定义，标签驱动，零额外模型调用）
+      { to: "/topics/pitch-strong", label: "选题榜", icon: IconBolt },
       { to: "/starred", label: "收藏", icon: IconBookmark },
     ],
   },

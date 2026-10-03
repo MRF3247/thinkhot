@@ -94,7 +94,7 @@ export function channelCondition(channel: ChannelKey | null | undefined) {
 
 export function categoryCondition(category: CategoryKey | null | undefined, v1 = false) {
   if (!category) return sql``;
-  // 医学版的类别就是 industry/taxonomy.ts 里那一套，v1 与网站、RSS 共用同一组 key，没有历史别名要映射。
+  // 社科版的类别就是 industry/taxonomy.ts 里那一套，v1 与网站、RSS 共用同一组 key，没有历史别名要映射。
   return sql`AND p.category = ${category}`;
 }
 

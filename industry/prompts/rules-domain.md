@@ -1,44 +1,43 @@
 
-【医学领域翻译规则 — 本平台 100% 是医学、临床与生物医学行业内容，严格遵守】
+【人文社科翻译规则 — 本平台 100% 是哲学、社会学、心理学、人类学、政治学、经济学、历史学、文学与语言研究的内容，严格遵守】
 
-1. 歧义默认值：以下词在中文有非医学歧义，**一律按医学含义翻译**：
-   - indication = 适应证（绝不译"指示"/"指示器"）
-   - endpoint = 终点（primary endpoint = 主要终点；绝不译"端点"）
-   - arm = 组／治疗组（trial arm = 试验组）
-   - cohort = 队列（cohort study = 队列研究，不译"分组研究"）
-   - case = 病例（case report = 病例报告；不是"案例/案例报告"）
-   - lesion = 病灶（不是"损伤/病变损坏"）
-   - presentation = 就诊表现／临床表现（不是"演示"）
-   - culture = 培养（不是"文化"）
-   - positive / negative = 阳性／阴性（检测结果）
-   - incidence = 发病率，prevalence = 患病率（**两者不可互换**）
-   - sensitivity = 灵敏度，specificity = 特异度（不译"敏感性/特殊性"；sensibility 才是"敏感性"）
-   - adverse event = 不良事件，side effect = 副作用（**不可混用**）
-   - label = 说明书（FDA label = 药品说明书）；off-label = 超说明书用药
-   - approval = 获批（不是"批准书"）；clearance = 通过（器械许可）
-   - recall = 召回；withdrawal = 撤回；black box warning = 黑框警告
-   - placebo = 安慰剂；blinded = 盲法；randomized = 随机
-   - discharge = 出院（临床语境）/ 分泌物（病理语境，看上下文）
-   - dose = 剂量；dosing = 给药方案；dosage regimen 同上
-   - progression = 进展（疾病进展），不是"进程/进步"
+1. 歧义默认值：以下词在中文有非学术歧义，**一律按学术含义翻译**：
+   - culture = 文化（不是“培养”）
+   - power = 权力（政治与社会语境）；统计语境下 power = 检验力
+   - class = 阶级／阶层（不是“班级”）
+   - subject = 主体／研究对象（实验语境按原文写“被试”）
+   - agency = 能动性（不是“代理/机构”）
+   - norm = 规范（不是“标准值”）
+   - discourse = 话语（不是“演讲”）
+   - race = 种族（不是“比赛”）
+   - sex = 生理性别，gender = 社会性别（**两者不可互换**）
+   - significance = 统计显著（**绝不译成“重要性”“重大”**）
+   - correlation = 相关（**不是因果**）；association = 关联
+   - validity = 效度，reliability = 信度（不写“有效性/可靠性”）
+   - bias = 偏差／偏误；confounder = 混杂因素
+   - effect size = 效应量；confidence interval = 置信区间
+   - longitudinal = 纵向；panel = 追踪样本；cross-sectional = 横断面
+   - sample = 样本；population = 总体（确实指人口时才写“人口”）
+   - qualitative = 质性，quantitative = 量化（同一篇内保持一致）
+   - ethnography = 民族志；fieldwork = 田野工作；informant = 报道人
+   - replication = 复现；reproducibility = 可重复性
+   - preprint = 预印本；working paper = 工作论文；peer review = 同行评议
+   - normative = 规范性的（与 descriptive 描述性的相对）
+   - epistemology = 认识论；ontology = 本体论；metaphysics = 形而上学
+   - state = 国家／政府（不是“州”，除非确指美国州）
+   - institution = 制度／机构（**看上下文，不要一律译“机构”**）
+   - welfare = 福祉（经济学语境也可是福利）
+   - review = 综述（学术语境）／书评（文学与出版语境），按上下文判断
 
-2. 以下专有名词**一律保留英文原文**，不翻译不加中文括注：
-   - 靶点与分子：PD-1 / PD-L1 / CTLA-4 / EGFR / ALK / HER2 / KRAS G12C / BRAF / BCMA / CD19 / CD20 / VEGF / TNF-α / GLP-1 / GIP / SGLT2 / IL-6 / PCSK9 / TROP2 / Claudin 18.2
-   - 统计与研究缩写：RCT / OS / PFS / DFS / ORR / DOR / HR / RR / OR / CI / AE / SAE / ITT / mITT / NNT / BMI / ECOG / PS
-   - 监管与学会缩写：FDA / EMA / NMPA / CDE / WHO / CDC / NIH / NICE / ASCO / ESMO / AACR / AHA / ESC / ADA / EASD / NCCN / CSCO / NCI
-   - 试验代号：KEYNOTE-189 / CheckMate 227 / DESTINY-Breast04 / RECOVERY / SOLIDARITY / CTONG 系列等，**连字符与数字一字不改**
-   - 技术与检测：ctDNA / NGS / PCR / MRI / CT / PET-CT / NGS / CAR-T / mRNA / AAV / CRISPR / ADC / siRNA
-   - 期刊名与分级：NEJM / The Lancet / JAMA / BMJ / Nature Medicine（期刊名保留英文）
-   **规则**：任何 2–6 字母的全大写缩写，默认按医学含义保留英文；不确定含义时保留英文，不要猜译。
+2. 以下专有名词**一律保留英文**，不翻译不加中文括注：
+   - 统计与研究缩写：RCT / CI / SE / SD / OR / RR / HR / p / N / n / df / ANOVA / SEM / IV / DV / DID / RDD / ITT
+   - 方法与设计术语在首次出现时给中文并保留英文：差异中的差异（DID）、断点回归（RDD）、工具变量（IV）、倾向值匹配（PSM）
+   - 期刊与机构缩写：Science / Nature / PNAS / NBER / APA / APS / ASA / APSA / AAA / WHO / OECD / UNESCO
+   - 学者姓名：中文有通行译名的用中文（福柯、布迪厄、哈贝马斯、韦伯、涂尔干、阿伦特、罗尔斯），没有通行译名的保留英文原名，不要自造译名
+   - 著作与论文名：有通行中文译本的用中文书名号（《正义论》《规训与惩罚》《新教伦理与资本主义精神》），否则保留英文原名
 
-3. 药物与公司名：
-   - 跨国药企优先用官方中文名（辉瑞／默沙东／罗氏／诺华／阿斯利康／赛诺菲／礼来／诺和诺德／强生／拜耳／武田／葛兰素史克），首次出现可双标"默沙东（Merck）"；
-   - 药物：国内已有通用中文名的用中文（阿司匹林、二甲双胍、奥希替尼、司美格鲁肽、帕博利珠单抗）；**没有通行中文名的保留英文商品名/代号**（如 ADC 代号、早期代号 XYZ-101），不要自造译名；
-   - 商品名与通用名不要混用：原文写商品名（Keytruda）就写商品名，原文写通用名（pembrolizumab）就写通用名；原文同时给出时两者都保留。
+3. 数字与统计量**一字不改**，尤其禁止“翻译性换算”：
+   - 保留原文写法：N=2000 / r=0.31 / p<0.001 / 95% CI / 效应量 d=0.42 / 12 个国家 / 1980–2015 年 / 上升 3.2 个百分点
+   - **不得**把 “p=0.03” 改写成“显著影响”；**不得**把 “marginally significant”（边缘显著）写成“显著”；**不得**把 “associated with” 写成“导致”；**不得**把 “did not replicate”（未能复现）弱化成“结果不一致”；**不得**把效应量或置信区间换算成百分比
 
-4. 数字、单位、统计量**一字不改**，尤其禁止"翻译性换算"：
-   - 保留原文写法：800 例 / 3.2 个月 / HR 0.72 / 95% CI 0.61–0.85 / p<0.001 / 5 mg 每日一次 / 12.5% / 2 年 OS 率 62%
-   - **不得**把 "HR 0.72" 改写成"风险降低 28%"（除非原文自己这么写）；**不得**把 "p=0.03" 改写成"显著改善"；**不得**把 "非劣效"（non-inferiority）改写成"同样有效"；**不得**把 "did not meet the primary endpoint" 弱化成"结果不理想"。
-   - 期别照抄：Phase 1/2/3 = 一期/二期/三期（也可写 1/2/3 期），preclinical = 临床前，first-in-human = 首次人体试验。
-
-5. 证据等级词必须原样保留，不得升级：preprint = 预印本（未经同行评议）、conference abstract = 会议摘要、interim analysis = 中期分析、exploratory endpoint = 探索性终点、retrospective = 回顾性、observational = 观察性、single-arm = 单臂、in vitro = 体外、in vivo（动物）= 动物实验、case series = 病例系列。摘要里必须至少出现一次能表明证据类型或阶段的说法。
+4. 证据等级词必须原样保留，不得升级：preprint = 预印本（未经同行评议）、working paper = 工作论文、conference paper = 会议论文、preliminary = 初步、exploratory = 探索性、observational = 观察性、correlational = 相关性、cross-sectional = 横断面、single case = 单一案例、convenience sample = 便利取样、self-report = 自报、anecdotal = 轶事性、in mice / in vitro（跨学科材料里出现时）= 动物实验／体外实验。摘要里必须至少出现一次能表明证据类型或阶段的说法。

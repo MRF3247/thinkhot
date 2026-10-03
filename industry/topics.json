@@ -1,329 +1,673 @@
 {
-  "exportedAt": "2026-09-29",
+  "exportedAt": "2026-10-03",
   "groups": [
     {
       "key": "company",
-      "name": "机构与公司",
-      "blurb": "按监管机构、期刊与药械企业追踪：谁批了什么、谁发了什么"
+      "name": "机构与期刊",
+      "blurb": "按研究机构、学会与刊物追踪：谁发布了什么、哪家刊物在推什么"
     },
     {
       "key": "field",
-      "name": "疾病与方向",
-      "blurb": "按疾病领域和学科方向深挖：肿瘤、心血管、感染与疫苗、代谢……"
+      "name": "学科与方向",
+      "blurb": "按学科深挖：哲学、社会学、心理学、人类学、政治学、经济学、历史学……"
     },
     {
       "key": "genre",
       "name": "内容形态",
-      "blurb": "按内容类型浏览：研究、试验、指南、审批、政策、科普……"
+      "blurb": "按内容类型浏览：论文与预印本、调查数据、理论工作、长文、书评、访谈……"
+    },
+    {
+      "key": "pitch",
+      "name": "选题池",
+      "blurb": "按能不能做成一条内容筛：能讲给外行听、有反直觉或冲突、有具体的人和场景"
     }
   ],
   "topics": [
     {
-      "slug": "fda",
-      "name": "FDA",
+      "slug": "nber",
+      "name": "NBER 美国国家经济研究局",
       "group": "company",
-      "entityId": "fda",
-      "tags": ["FDA", "entity:fda"],
-      "definition": "美国食品药品监督管理局的全部动态：新药与器械审批、加速批准与撤回、安全性警示、监管政策变化。",
-      "related": ["ema", "nmpa", "drug-approval"]
+      "entityId": "nber",
+      "tags": [
+        "NBER",
+        "entity:nber"
+      ],
+      "definition": "美国国家经济研究局的工作论文与会议论文：经济学各分支的新数据与新识别策略，是很多后续研究的起点。",
+      "related": [
+        "economics",
+        "research-papers",
+        "top-journals"
+      ]
     },
     {
-      "slug": "ema",
-      "name": "EMA",
+      "slug": "pew",
+      "name": "Pew Research Center",
       "group": "company",
-      "entityId": "ema",
-      "tags": ["EMA", "entity:ema"],
-      "definition": "欧洲药品管理局的审批决定、安全评估与召回信息，以及欧盟层面的用药政策。",
-      "related": ["fda", "nmpa", "drug-approval"]
+      "entityId": "pew",
+      "tags": [
+        "Pew Research Center",
+        "entity:pew"
+      ],
+      "definition": "皮尤研究中心的民意、宗教、媒体与人口调查：可核查的问卷与抽样方法，常被媒体和政策讨论引用。",
+      "related": [
+        "surveys-data",
+        "sociology",
+        "religion"
+      ]
     },
     {
-      "slug": "nmpa",
-      "name": "NMPA / 国家药监局",
+      "slug": "brookings",
+      "name": "Brookings",
       "group": "company",
-      "entityId": "nmpa",
-      "tags": ["NMPA", "entity:nmpa"],
-      "definition": "国家药监局与药审中心的审批、附条件批准、优先审评与药品监管动态，中国创新药出海的监管侧变化。",
-      "related": ["fda", "ema", "drug-approval"]
+      "entityId": "brookings",
+      "tags": [
+        "Brookings",
+        "entity:brookings"
+      ],
+      "definition": "布鲁金斯学会的政策研究报告与评论：治理、经济、社会政策方向的智库产出。",
+      "related": [
+        "policy-reports",
+        "political-science",
+        "economics"
+      ]
     },
     {
-      "slug": "who",
-      "name": "WHO",
+      "slug": "learned-societies",
+      "name": "学会动态",
       "group": "company",
-      "entityId": "who",
-      "tags": ["WHO", "entity:who"],
-      "definition": "世界卫生组织的指南、疫情通报、全球卫生政策与疫苗相关决策。",
-      "related": ["cdc", "public-health", "vaccines"]
-    },
-    {
-      "slug": "cdc",
-      "name": "CDC / 疾控",
-      "group": "company",
-      "entityId": "cdc",
-      "tags": ["CDC", "entity:cdc"],
-      "definition": "美国 CDC 与中国疾控中心的疫情监测、防控建议、免疫规划与公共卫生通报。",
-      "related": ["who", "public-health"]
+      "tags": [
+        "APA",
+        "APS",
+        "ASA",
+        "APSA",
+        "AAA"
+      ],
+      "definition": "主要学会（APA 美国心理学会、APS 心理科学协会、ASA 美国社会学会、APSA 美国政治学会、AAA 美国人类学学会）的立场声明、期刊政策与年会动向。注意 APA 缩写在美国心理学会与美国哲学会之间存在歧义，按原文核对。",
+      "related": [
+        "academic-system",
+        "psychology",
+        "sociology"
+      ]
     },
     {
       "slug": "top-journals",
       "name": "顶刊动态",
       "group": "company",
-      "tags": ["前沿研究", "NEJM", "The Lancet", "JAMA", "Nature Medicine", "BMJ"],
-      "definition": "NEJM、柳叶刀、JAMA、BMJ、Nature Medicine 等顶刊的研究与社论，按期刊而非疾病领域追踪。",
-      "related": ["research-frontier", "trials"]
+      "tags": [
+        "Nature Human Behaviour",
+        "Science",
+        "PNAS",
+        "Mind",
+        "Ethics",
+        "American Sociological Review",
+        "American Political Science Review",
+        "American Economic Review",
+        "American Anthropologist",
+        "American Historical Review",
+        "Critical Inquiry"
+      ],
+      "definition": "各学科顶刊的最新论文与社论，按期刊而不是按学科追踪：Mind、ASR、APSR、AER、American Anthropologist、Critical Inquiry……",
+      "related": [
+        "research-papers",
+        "research-papers"
+      ]
     },
     {
-      "slug": "pfizer",
-      "name": "Pfizer / 辉瑞",
+      "slug": "preprint-platforms",
+      "name": "预印本平台",
       "group": "company",
-      "entityId": "pfizer",
-      "tags": ["Pfizer", "entity:pfizer"],
-      "definition": "辉瑞的产品管线、临床试验结果、商业动作与财报。",
-      "related": ["merck", "moderna", "oncology"]
+      "tags": [
+        "预印本"
+      ],
+      "definition": "PsyArXiv、SocArXiv、EdArXiv、PhilSci-Archive 与 arXiv 社科分类上的最新预印本：未经同行评议，但往往是最早出现的新数据与新论证。",
+      "related": [
+        "research-papers",
+        "replication-crisis"
+      ]
     },
     {
-      "slug": "merck",
-      "name": "Merck / 默沙东",
+      "slug": "aeon",
+      "name": "Aeon",
       "group": "company",
-      "entityId": "merck",
-      "tags": ["Merck", "entity:merck"],
-      "definition": "默沙东的管线与在研药物进展、K 药相关研究与商业动态。",
-      "related": ["pfizer", "bms", "oncology"]
+      "entityId": "aeon",
+      "tags": [
+        "Aeon",
+        "entity:aeon"
+      ],
+      "definition": "Aeon 的哲学、心理学与社会科学长文：把研究问题写成普通人能读的论述，思想媒体的代表性刊物。",
+      "related": [
+        "longform-essays",
+        "philosophy",
+        "psychology"
+      ]
     },
     {
-      "slug": "roche",
-      "name": "Roche / 罗氏",
+      "slug": "noema",
+      "name": "Noema",
       "group": "company",
-      "entityId": "roche",
-      "tags": ["Roche", "entity:roche"],
-      "definition": "罗氏与基因泰克的药物、诊断业务与在研管线动态。",
-      "related": ["novartis", "diagnostics"]
+      "entityId": "noema",
+      "tags": [
+        "Noema",
+        "entity:noema"
+      ],
+      "definition": "Noema 关于技术、社会与思想的长文与对谈。",
+      "related": [
+        "longform-essays",
+        "sts",
+        "debates"
+      ]
     },
     {
-      "slug": "novo-lilly",
-      "name": "GLP-1 与减重市场",
+      "slug": "intl-orgs",
+      "name": "国际组织",
       "group": "company",
-      "tags": ["entity:novo", "entity:lilly", "代谢与内分泌", "药物/器械审批"],
-      "definition": "诺和诺德与礼来领跑的 GLP-1 赛道：减重与糖尿病药物的试验结果、适应证扩展、产能与价格战。",
-      "related": ["metabolic", "trials", "industry-moves"]
+      "entityId": "oecd",
+      "tags": [
+        "WHO",
+        "OECD",
+        "UNESCO",
+        "World Bank"
+      ],
+      "definition": "WHO、OECD、UNESCO 与世界银行的报告与统计：跨国比较数据、教育与文化政策、发展研究。",
+      "related": [
+        "policy-reports",
+        "surveys-data"
+      ]
     },
     {
-      "slug": "astrazeneca",
-      "name": "AstraZeneca / 阿斯利康",
-      "group": "company",
-      "entityId": "astrazeneca",
-      "tags": ["AstraZeneca", "entity:astrazeneca"],
-      "definition": "阿斯利康的肿瘤与呼吸管线、中国区业务与全球商业动态。",
-      "related": ["oncology", "industry-moves"]
-    },
-    {
-      "slug": "moderna",
-      "name": "Moderna / mRNA",
-      "group": "company",
-      "entityId": "moderna",
-      "tags": ["Moderna", "entity:moderna", "感染与疫苗"],
-      "definition": "mRNA 技术路线的临床与商业进展：疫苗、肿瘤治疗性疫苗和相关平台公司。",
-      "related": ["vaccines", "pfizer", "oncology"]
-    },
-    {
-      "slug": "medtronic",
-      "name": "Medtronic / 美敦力",
-      "group": "company",
-      "entityId": "medtronic",
-      "tags": ["Medtronic", "entity:medtronic", "器械与设备"],
-      "definition": "美敦力等器械巨头的产品获批、临床数据、召回与商业动作。",
-      "related": ["devices", "drug-approval"]
-    },
-    {
-      "slug": "china-pharma",
-      "name": "中国创新药",
-      "group": "company",
-      "tags": ["entity:hengrui", "entity:beigene", "entity:innovent", "entity:wuxi", "产业动态"],
-      "definition": "恒瑞、百济神州、信达、药明系等中国药企的临床进展、License-out 交易、出海与商业化。",
-      "related": ["industry-moves", "nmpa", "oncology"]
-    },
-    {
-      "slug": "oncology",
-      "name": "肿瘤",
+      "slug": "philosophy",
+      "name": "哲学",
       "group": "field",
-      "tags": ["肿瘤"],
-      "definition": "肿瘤领域的试验结果、新靶点与药物、筛查与诊疗指南、真实世界数据。",
-      "related": ["trials", "gene-cell-therapy", "diagnostics"]
+      "tags": [
+        "哲学",
+        "伦理学",
+        "政治哲学",
+        "认识论与科学哲学"
+      ],
+      "definition": "哲学各分支：心智哲学、伦理学与政治哲学、认识论与科学哲学、美学与逻辑学的新论文与新论证。",
+      "related": [
+        "theory-work",
+        "ethics-field",
+        "mind-field"
+      ]
     },
     {
-      "slug": "cardiology",
-      "name": "心血管",
+      "slug": "sociology",
+      "name": "社会学",
       "group": "field",
-      "tags": ["心血管"],
-      "definition": "心血管疾病的研究、药物与器械试验、血脂血压管理与指南更新。",
-      "related": ["metabolic", "devices", "trials"]
+      "tags": [
+        "社会学",
+        "社会学研究",
+        "劳动与不平等"
+      ],
+      "definition": "社会分层与流动、组织与网络、城市与社区、家庭与人口的社会学研究。",
+      "related": [
+        "surveys-data",
+        "pew-family",
+        "economics"
+      ]
     },
     {
-      "slug": "neuro-psych",
-      "name": "神经与精神",
+      "slug": "psychology",
+      "name": "心理学",
       "group": "field",
-      "tags": ["神经与精神"],
-      "definition": "神经退行性疾病、脑血管病、精神心理领域的研究进展与药物开发。",
-      "related": ["trials", "drug-approval"]
+      "tags": [
+        "心理学",
+        "心理学研究",
+        "心理健康",
+        "认知科学"
+      ],
+      "definition": "认知、社会、发展与临床心理学的研究：实验、纵向追踪与元分析，以及复现进展。",
+      "related": [
+        "replication-crisis",
+        "mind-field",
+        "cognitive-science"
+      ]
     },
     {
-      "slug": "vaccines",
-      "name": "感染与疫苗",
+      "slug": "anthropology",
+      "name": "人类学",
       "group": "field",
-      "tags": ["感染与疫苗"],
-      "definition": "传染病与疫苗的临床数据、免疫策略、新发病原体监测与抗感染治疗。",
-      "related": ["public-health", "trials", "who"]
+      "tags": [
+        "人类学",
+        "人类学研究"
+      ],
+      "definition": "民族志与田野工作：文化、仪式、亲属、物质生活与全球南方的人类学研究。",
+      "related": [
+        "culture-field",
+        "longform-essays"
+      ]
     },
     {
-      "slug": "metabolic",
-      "name": "代谢与内分泌",
+      "slug": "political-science",
+      "name": "政治学",
       "group": "field",
-      "tags": ["代谢与内分泌"],
-      "definition": "糖尿病、肥胖、脂肪肝与内分泌疾病的研究、药物与生活方式干预证据。",
-      "related": ["novo-lilly", "cardiology", "trials"]
+      "tags": [
+        "政治学",
+        "政治与治理",
+        "政治哲学"
+      ],
+      "definition": "比较政治、国际关系与政治理论：选举与制度、冲突与合作、民主与威权的研究。",
+      "related": [
+        "policy-reports",
+        "debates",
+        "economics"
+      ]
     },
     {
-      "slug": "immunology",
-      "name": "免疫与炎症",
+      "slug": "economics",
+      "name": "经济学",
       "group": "field",
-      "tags": ["免疫与炎症"],
-      "definition": "自身免疫病、炎症性疾病的机制研究、生物制剂与细胞治疗。",
-      "related": ["gene-cell-therapy", "trials"]
+      "tags": [
+        "经济学",
+        "经济研究",
+        "劳动与不平等"
+      ],
+      "definition": "劳动、发展、行为与公共经济学：因果识别做得干净的经验研究，以及经济思想与方法争论。",
+      "related": [
+        "nber",
+        "surveys-data",
+        "policy-reports"
+      ]
     },
     {
-      "slug": "gene-cell-therapy",
-      "name": "基因与细胞治疗",
+      "slug": "history",
+      "name": "历史学",
       "group": "field",
-      "tags": ["基因与细胞治疗"],
-      "definition": "CAR-T、基因编辑、AAV 与干细胞治疗的临床数据、审批与安全性事件。",
-      "related": ["oncology", "immunology", "drug-approval"]
+      "tags": [
+        "历史学",
+        "历史研究"
+      ],
+      "definition": "史学研究与历史社会学：新档案、新解释、全球史与区域史，以及关于如何书写过去的争论。",
+      "related": [
+        "longform-essays",
+        "book-reviews",
+        "theory-work"
+      ]
     },
     {
-      "slug": "ai-digital-health",
-      "name": "AI 与数字医疗",
+      "slug": "literary-theory",
+      "name": "文学理论",
       "group": "field",
-      "tags": ["AI与数字医疗", "影像与诊断"],
-      "definition": "医疗 AI 的审批、临床验证、大模型在诊疗与科研中的应用，以及数字疗法与医疗信息化。",
-      "related": ["diagnostics", "devices"]
+      "tags": [
+        "文学理论",
+        "文学与批评",
+        "文化与艺术"
+      ],
+      "definition": "文学理论、批评方法与比较文学：文本细读、理论转向与人文教育的争论。",
+      "related": [
+        "theory-work",
+        "book-reviews",
+        "culture-field"
+      ]
     },
     {
-      "slug": "diagnostics",
-      "name": "检验与影像",
+      "slug": "linguistics",
+      "name": "语言学",
       "group": "field",
-      "tags": ["影像与诊断", "检验与病理"],
-      "definition": "影像诊断、液体活检、伴随诊断与检验技术的性能验证与临床落地。",
-      "related": ["ai-digital-health", "oncology"]
+      "tags": [
+        "语言学"
+      ],
+      "definition": "句法、语义、语用、社会语言学与心理语言学：语言结构与语言使用的实证研究。",
+      "related": [
+        "cognitive-science",
+        "research-papers"
+      ]
     },
     {
-      "slug": "devices",
-      "name": "器械与设备",
+      "slug": "education",
+      "name": "教育学",
       "group": "field",
-      "tags": ["器械与设备"],
-      "definition": "医疗器械、介入与手术机器人、可穿戴与家用设备的获批、临床数据与召回。",
-      "related": ["drug-approval", "medtronic"]
+      "tags": [
+        "教育学",
+        "教育研究"
+      ],
+      "definition": "学习科学、教育政策与教学实践、大学治理与学术职业：有真实数据支撑的教育研究。",
+      "related": [
+        "policy-reports",
+        "academic-system",
+        "surveys-data"
+      ]
     },
     {
-      "slug": "public-health",
-      "name": "公共卫生",
+      "slug": "communication",
+      "name": "传播学",
       "group": "field",
-      "tags": ["公共卫生"],
-      "definition": "疫情与流行病监测、慢病防控、职业与环境健康、基层与公共卫生体系议题。",
-      "related": ["who", "cdc", "vaccines"]
+      "tags": [
+        "传播学",
+        "技术与社会"
+      ],
+      "definition": "媒介效果、平台与公共舆论、新闻生产与信息生态的传播学研究。",
+      "related": [
+        "sts",
+        "surveys-data",
+        "debates"
+      ]
     },
     {
-      "slug": "research-frontier",
-      "name": "前沿研究",
-      "group": "genre",
-      "tags": ["前沿研究"],
-      "definition": "论文、预印本与基础机制研究：今天发表的新证据，按发表时间排列。",
-      "related": ["trials", "top-journals"]
+      "slug": "cognitive-science",
+      "name": "认知科学",
+      "group": "field",
+      "tags": [
+        "认知科学"
+      ],
+      "definition": "认知科学各分支的交叉研究：知觉、记忆、决策、语言与心智的计算与神经基础。",
+      "related": [
+        "psychology",
+        "mind-field",
+        "research-papers"
+      ]
     },
     {
-      "slug": "trials",
-      "name": "临床试验",
-      "group": "genre",
-      "tags": ["临床试验"],
-      "definition": "注册与结果公布的临床试验：主要终点、入组人群、疗效与安全性数据。",
-      "related": ["research-frontier", "drug-approval"]
+      "slug": "gender-studies",
+      "name": "性别研究",
+      "group": "field",
+      "tags": [
+        "性别研究",
+        "性别与性"
+      ],
+      "definition": "性别与性的社会、历史与文化研究，以及相关公共讨论。",
+      "related": [
+        "sociology",
+        "debates",
+        "humanities-field-extra"
+      ]
     },
     {
-      "slug": "guidelines",
-      "name": "指南与共识",
-      "group": "genre",
-      "tags": ["指南/共识"],
-      "definition": "国内外学会与机构的诊疗指南、专家共识与推荐意见更新。",
-      "related": ["clinical-practice", "policy"]
+      "slug": "religion",
+      "name": "宗教研究",
+      "group": "field",
+      "tags": [
+        "宗教研究",
+        "宗教与信仰"
+      ],
+      "definition": "宗教社会学、宗教史与宗教哲学研究，以及信仰与公共生活的调查数据。",
+      "related": [
+        "pew",
+        "history",
+        "anthropology"
+      ]
     },
     {
-      "slug": "drug-approval",
-      "name": "审批与监管决定",
-      "group": "genre",
-      "tags": ["药物/器械审批"],
-      "definition": "新药、适应证与器械的获批、驳回、撤回、优先审评资格与安全性行动。",
-      "related": ["fda", "ema", "nmpa"]
+      "slug": "sts",
+      "name": "科学技术与社会 STS",
+      "group": "field",
+      "tags": [
+        "科学技术与社会STS",
+        "技术与社会",
+        "AI伦理"
+      ],
+      "definition": "科学技术的社会研究：技术如何被设计、使用与争论，AI 治理、数据伦理与知识生产。",
+      "related": [
+        "tech-ethics",
+        "communication",
+        "philosophy"
+      ]
     },
     {
-      "slug": "industry-moves",
-      "name": "产业动态",
-      "group": "genre",
-      "tags": ["产业动态"],
-      "definition": "融资并购、授权合作、人事变动、财报与市场格局变化。",
-      "related": ["china-pharma", "policy"]
+      "slug": "ethics-field",
+      "name": "伦理学",
+      "group": "field",
+      "tags": [
+        "伦理学",
+        "AI伦理"
+      ],
+      "definition": "道德哲学与应用伦理：规范性问题、思想实验与真实案例的伦理分析。",
+      "related": [
+        "theory-work",
+        "tech-ethics",
+        "philosophy"
+      ]
     },
     {
-      "slug": "policy",
-      "name": "政策与医保",
-      "group": "genre",
-      "tags": ["政策/监管"],
-      "definition": "医保支付、集采与价格管理、法规修订、伦理与科研治理、行业监管行动。",
-      "related": ["industry-moves", "nmpa"]
+      "slug": "mind-field",
+      "name": "心智与意识",
+      "group": "field",
+      "tags": [
+        "认知科学",
+        "心理健康",
+        "哲学"
+      ],
+      "definition": "意识、自我、情绪与心智的交叉议题：哲学论证、心理学实验与神经科学证据之间的对话。",
+      "related": [
+        "philosophy",
+        "psychology",
+        "cognitive-science"
+      ]
     },
     {
-      "slug": "clinical-practice",
-      "name": "临床实践",
-      "group": "genre",
-      "tags": ["临床实践", "病例报告"],
-      "definition": "一线诊疗经验、典型与疑难病例、安全性信号与用药选择讨论。",
-      "related": ["guidelines", "safety"]
+      "slug": "culture-field",
+      "name": "文化研究",
+      "group": "field",
+      "tags": [
+        "文化研究",
+        "文化与艺术"
+      ],
+      "definition": "文化研究、文化社会学与艺术批评：趣味、阶层、媒体与日常生活。",
+      "related": [
+        "sociology",
+        "anthropology",
+        "literary-theory"
+      ]
     },
     {
-      "slug": "safety",
-      "name": "安全性与药物警戒",
-      "group": "genre",
-      "tags": ["安全性信号"],
-      "definition": "不良反应、黑框警告、召回与药物警戒信号，以及被撤市或暂停的研究。",
-      "related": ["drug-approval", "clinical-practice"]
+      "slug": "tech-ethics",
+      "name": "技术与伦理",
+      "group": "field",
+      "tags": [
+        "技术与社会",
+        "AI伦理",
+        "伦理学"
+      ],
+      "definition": "技术带来的规范性问题：算法与责任、隐私与自主、人类增强与生物伦理、环境与未来世代。",
+      "related": [
+        "sts",
+        "ethics-field",
+        "policy-reports"
+      ]
     },
     {
-      "slug": "explainers",
-      "name": "科普与患者教育",
-      "group": "genre",
-      "tags": ["科普/教育"],
-      "definition": "面向大众和患者的高质量医学解读、疾病科普与就医指导。",
-      "related": ["public-health", "opinion"]
+      "slug": "humanities-field-extra",
+      "name": "人文与历史",
+      "group": "field",
+      "tags": [
+        "历史研究",
+        "文学与批评",
+        "宗教与信仰"
+      ],
+      "definition": "文史哲的交叉地带：思想史、书籍与阅读史、记忆与纪念、经典重读。",
+      "related": [
+        "history",
+        "literary-theory",
+        "longform-essays"
+      ]
     },
     {
-      "slug": "opinion",
-      "name": "观点与深度解读",
-      "group": "genre",
-      "tags": ["观点/评论"],
-      "definition": "医生、研究者与行业人士的观点、访谈与深度分析。",
-      "related": ["industry-moves", "policy"]
+      "slug": "pew-family",
+      "name": "家庭与人口",
+      "group": "field",
+      "tags": [
+        "人口学",
+        "社会学研究"
+      ],
+      "definition": "人口结构、婚育与家庭形态、迁移与代际关系的调查与追踪研究。",
+      "related": [
+        "surveys-data",
+        "sociology",
+        "pew"
+      ]
     },
     {
-      "slug": "med-edu",
-      "name": "医学教育与职业",
+      "slug": "research-papers",
+      "name": "论文与预印本",
       "group": "genre",
-      "tags": ["医学教育", "行业舆情"],
-      "definition": "医学院教育、规培与专培、科研训练、医生的职业环境与行业舆情。",
-      "related": ["opinion", "research-integrity"]
+      "tags": [
+        "论文与预印本",
+        "预印本"
+      ],
+      "definition": "新发表的论文与刚上线的预印本：今天出现的新数据、新方法与新结论。",
+      "related": [
+        "replication-crisis",
+        "top-journals",
+        "preprint-platforms"
+      ]
     },
     {
-      "slug": "research-integrity",
-      "name": "科研诚信",
+      "slug": "surveys-data",
+      "name": "调查与数据",
       "group": "genre",
-      "tags": ["科研诚信"],
-      "definition": "撤稿、数据造假、论文工厂、临床试验数据完整性与学术治理。",
-      "related": ["med-edu", "trials"]
+      "tags": [
+        "调查数据"
+      ],
+      "definition": "民意调查、价值观调查与大型面板数据的新结果与可复用的公开数据集。",
+      "related": [
+        "pew",
+        "policy-reports",
+        "sociology"
+      ]
+    },
+    {
+      "slug": "theory-work",
+      "name": "理论与概念工作",
+      "group": "genre",
+      "tags": [
+        "理论工作"
+      ],
+      "definition": "提出新概念、新框架或对既有解释的反驳：不靠新数据，靠论证本身推进。",
+      "related": [
+        "philosophy",
+        "debates",
+        "longform-essays"
+      ]
+    },
+    {
+      "slug": "replication-crisis",
+      "name": "复现与方法争论",
+      "group": "genre",
+      "tags": [
+        "复现研究",
+        "方法论与统计"
+      ],
+      "definition": "复现研究、失败复现的公布、统计与因果识别的争论：一个领域整体可靠不可靠，就看这一块。",
+      "related": [
+        "psychology",
+        "research-papers",
+        "academic-system"
+      ]
+    },
+    {
+      "slug": "policy-reports",
+      "name": "政策与报告",
+      "group": "genre",
+      "tags": [
+        "政策报告",
+        "政治与治理",
+        "气候与环境"
+      ],
+      "definition": "政府、国际组织与智库的报告与建议，以及政策评估研究。",
+      "related": [
+        "brookings",
+        "intl-orgs",
+        "economics"
+      ]
+    },
+    {
+      "slug": "academic-system",
+      "name": "学术体制与诚信",
+      "group": "genre",
+      "tags": [
+        "学术体制与诚信"
+      ],
+      "definition": "撤稿与学术不端、期刊与同行评议政策、经费与评价制度、大学治理与学术自由。",
+      "related": [
+        "replication-crisis",
+        "education"
+      ]
+    },
+    {
+      "slug": "longform-essays",
+      "name": "长文",
+      "group": "genre",
+      "tags": [
+        "长文",
+        "公共讨论"
+      ],
+      "definition": "思想媒体与深度报道的长文：把研究问题讲给普通读者，值得慢慢读的那些。",
+      "related": [
+        "aeon",
+        "noema",
+        "debates"
+      ]
+    },
+    {
+      "slug": "debates",
+      "name": "评论与论争",
+      "group": "genre",
+      "tags": [
+        "公共讨论"
+      ],
+      "definition": "评论、回应、商榷与对谈：看一个话题上各方在争什么。",
+      "related": [
+        "theory-work",
+        "longform-essays",
+        "book-reviews"
+      ]
+    },
+    {
+      "slug": "book-reviews",
+      "name": "书评",
+      "group": "genre",
+      "tags": [
+        "书评"
+      ],
+      "definition": "有实质评价的学术与思想类书评，不是出版方的推荐语。",
+      "related": [
+        "longform-essays",
+        "history",
+        "philosophy"
+      ]
+    },
+    {
+      "slug": "interviews-talks",
+      "name": "访谈与对谈",
+      "group": "genre",
+      "tags": [
+        "访谈"
+      ],
+      "definition": "研究者访谈、圆桌与公开对谈：听当事人怎么讲自己的工作与判断。",
+      "related": [
+        "longform-essays",
+        "debates"
+      ]
+    },
+    {
+      "slug": "pitch-strong",
+      "name": "强选题",
+      "group": "pitch",
+      "tags": [
+        "选题-强"
+      ],
+      "definition": "最值得做成一条内容的研究与观点：能讲给外行听、有反直觉或冲突、有具体的人和场景、能接上当前公共讨论（四条里中三条）。",
+      "related": [
+        "pitch-pool",
+        "longform-essays",
+        "debates"
+      ]
+    },
+    {
+      "slug": "pitch-pool",
+      "name": "选题池（全部可选题）",
+      "group": "pitch",
+      "tags": [
+        "选题-强",
+        "选题-中"
+      ],
+      "definition": "所有被判为可以做成内容的材料：强选题与中等选题合在一起，按时间排列，适合当选题清单翻。",
+      "related": [
+        "pitch-strong",
+        "research-papers",
+        "surveys-data"
+      ]
     }
   ]
 }

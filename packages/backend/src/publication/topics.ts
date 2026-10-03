@@ -9,7 +9,7 @@ import { ITEM_COLUMNS, ITEM_FROM, selectedCondition, toFeedItemSummary, type Ite
 export interface TopicRow {
   slug: string;
   name: string;
-  grp: "company" | "field" | "genre";
+  grp: "company" | "field" | "genre" | "pitch";
   entity_id: string | null;
   tags: string[];
   definition: string;
@@ -102,7 +102,7 @@ async function queryTopicCounts(): Promise<TopicCount[]> {
 export interface TopicSummary {
   slug: string;
   name: string;
-  group: "company" | "field" | "genre";
+  group: "company" | "field" | "genre" | "pitch";
   definition: string;
   total: number;
   recent: number;

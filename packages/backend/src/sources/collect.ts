@@ -353,12 +353,26 @@ export function maxItemsPerRun(config: unknown, fallback: number): number {
 }
 
 /**
+ * Stable per-source phase: where inside its own interval a source becomes due.
+ *
+ * Without this every source is re-phased to "now" whenever its interval changes, so the whole
+ * fleet comes due in the same minute and hits the network in one burst — that burst is what gets
+ * rate-limited (Crossref 429) and what makes the cadence unstable.
+ */
+export function phaseMinutes(id: string, interval: number): number {
+  let h = 2166136261;
+  for (let i = 0; i < id.length; i += 1) h = Math.imul(h ^ id.charCodeAt(i), 16777619) >>> 0;
+  return h % Math.max(1, interval);
+}
+
+/**
  * Daily: adapt each source's interval to its recent output (active 15 min … quiet 120 min).
- * hot_signal sources are allowed to be slower.
+ * hot_signal sources are allowed to be slower. Also re-phases every source across its own interval
+ * so the fleet stays spread out instead of firing together.
  */
 export async function adaptIntervals(): Promise<{ updated: number }> {
-  const rows = await sql<Array<Pick<SourceRow, "id" | "participation_mode" | "kind" | "config" | "cursor"> & { paid_listing: boolean; per_day: number }>>`
-    SELECT s.id, s.participation_mode, s.kind, s.config, s.cursor, coalesce(s.config->>'url', '') LIKE 'https://r.jina.ai/%' AS paid_listing,
+  const rows = await sql<Array<Pick<SourceRow, "id" | "participation_mode" | "kind" | "config" | "cursor"> & { paid_listing: boolean; per_day: number; interval_minutes: number | null }>>`
+    SELECT s.id, s.interval_minutes, s.participation_mode, s.kind, s.config, s.cursor, coalesce(s.config->>'url', '') LIKE 'https://r.jina.ai/%' AS paid_listing,
       (SELECT count(*) FROM articles a WHERE a.source_id = s.id AND a.discovered_at > now() - interval '7 days' AND NOT a.backfill) / 7.0 AS per_day
     FROM sources s WHERE s.enabled AND s.kind IN ('rss', 'web_list', 'json_list', 'x_search')`;
   let updated = 0;
@@ -373,8 +387,9 @@ export async function adaptIntervals(): Promise<{ updated: number }> {
     // X accounts read by shard follow the shard's pace, whatever their own volume.
     const target = intervalLockMinutes(r.config)
       ?? (shardHandle(r) ? shardMinutes(r.participation_mode) : perDay <= 0.15 ? max : Math.round(Math.min(max, Math.max(min, (24 * 60) / (perDay * 3)))));
-    const res = await sql`UPDATE sources SET interval_minutes = ${target} WHERE id = ${r.id} AND interval_minutes <> ${target}`;
-    updated += res.count;
+    const phase = phaseMinutes(r.id, target);
+    await sql`UPDATE sources SET interval_minutes = ${target}, next_fetch_at = now() + make_interval(mins => ${phase}) WHERE id = ${r.id}`;
+    if (r.interval_minutes !== target) updated += 1;
   }
   return { updated };
 }
