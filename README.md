@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.png">
-    <img src="docs/assets/banner-light.png" alt="ThinkHOT：许多条人文社科信源流进中间的精选，再分给读者" width="100%">
+    <img src="docs/assets/banner-light.png" alt="ThinkHOT —— 人文社科的思想热点：采集 140 个信源，双评分精选与选题榜，每天 08:00 出日报" width="100%">
   </picture>
 </p>
 
