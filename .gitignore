@@ -16,3 +16,6 @@ package/
 fontsource-noto-sans-sc-*.tgz
 .pgdata/
 .logs/
+
+# 公网发布的运行时产物（快照页面、日志、pid、隧道地址）
+.publish/

@@ -17,8 +17,8 @@ export async function loader({ request }: { request: Request }) {
 
 export function meta() {
   return pageMeta({
-    title: withSubject("热点榜"),
-    description: "过去 48 小时思想界讨论最多的 10 个事件：热度指数、趋势与组成热度的公开来源。",
+    title: withSubject("大事榜"),
+    description: "最值得看的思想大事：按 AI 精选评分排序，附讨论热度、参与信源与最新进展。",
     path: "/hot",
     image: "/og/pages/hot.png",
   });
@@ -142,8 +142,8 @@ function Lead({ e }: { e: HotEntryView }) {
         <div className="flex w-full shrink-0 items-end justify-between gap-5 sm:ml-auto sm:w-auto sm:justify-end">
           {!panel && <Sparkline values={e.spark} area className="h-10 w-[140px] text-accent" />}
           <div className="text-right">
-            <div className="mono text-[34px] font-semibold leading-none tracking-[-0.03em] text-ink">{Math.round(e.heat)}</div>
-            <div className="mt-1 text-[11.5px] text-ink-4">热度指数</div>
+            <div className="mono text-[34px] font-semibold leading-none tracking-[-0.03em] text-ink">{Math.round(e.importance)}</div>
+            <div className="mt-1 text-[11.5px] text-ink-4">精选评分</div>
           </div>
         </div>
       </div>
@@ -174,7 +174,15 @@ function Runner({ e }: { e: HotEntryView }) {
         </div>
         <div className="flex items-end gap-3">
           <Sparkline values={e.spark} className="h-7 w-[92px] text-accent" />
-          <span className="mono text-[24px] font-semibold leading-none tracking-[-0.02em] text-ink">{Math.round(e.heat)}</span>
+          <div className="text-right">
+            <span className="mono text-[24px] font-semibold leading-none tracking-[-0.02em] text-ink">{Math.round(e.importance)}</span>
+            <span className="ml-1.5 text-[11px] text-ink-4">分</span>
+            {e.heat > 0 && (
+              <div className="mt-0.5 text-[10.5px] text-ink-4">
+                讨论热度 <span className="num">{Math.round(e.heat)}</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </article>
@@ -185,7 +193,7 @@ function Runner({ e }: { e: HotEntryView }) {
 function Row({ e }: { e: HotEntryView }) {
   return (
     <li className="group relative grid grid-cols-[30px_minmax(0,1fr)] items-start gap-x-3 px-4 py-3 transition-colors hover:bg-bg-sunk/70 sm:px-5 lg:grid-cols-[44px_minmax(0,1fr)_auto_104px_76px] lg:items-center lg:gap-x-6 lg:px-6 lg:py-3.5 dark:hover:bg-bg-muted/40">
-      <span className={`mono text-[16px] font-semibold leading-[24px] lg:text-[17px] ${rankColor(e.rank)}`} aria-label={`热度排名第 ${e.rank} 位`}>
+      <span className={`mono text-[16px] font-semibold leading-[24px] lg:text-[17px] ${rankColor(e.rank)}`} aria-label={`第 ${e.rank} 位`}>
         {pad(e.rank)}
       </span>
       <div className="min-w-0">
@@ -204,7 +212,8 @@ function Row({ e }: { e: HotEntryView }) {
             <span className="num">{e.sourceCount}</span> 个来源
           </span>
           <span className="ml-auto flex items-center gap-2">
-            <span className="mono text-[17px] font-semibold leading-none text-ink">{Math.round(e.heat)}</span>
+            <span className="mono text-[17px] font-semibold leading-none text-ink">{Math.round(e.importance)}</span>
+            <span className="text-[11px] text-ink-4">分</span>
             <Delta trend={e.trend} pct={e.trendPct} />
           </span>
         </div>
@@ -214,8 +223,10 @@ function Row({ e }: { e: HotEntryView }) {
       </div>
       <Sparkline values={e.spark} className="hidden h-7 w-[104px] text-accent lg:block" />
       <div className="hidden flex-col items-end gap-1 lg:flex">
-        <span className="mono text-[20px] font-semibold leading-none tracking-[-0.02em] text-ink">{Math.round(e.heat)}</span>
-        <Delta trend={e.trend} pct={e.trendPct} />
+        <span className="mono text-[20px] font-semibold leading-none tracking-[-0.02em] text-ink">{Math.round(e.importance)}</span>
+        <span className="text-[10.5px] text-ink-4">
+          精选评分{e.heat > 0 && <> · 热度 <span className="num">{Math.round(e.heat)}</span></>}
+        </span>
       </div>
     </li>
   );
@@ -235,25 +246,27 @@ export default function HotPage() {
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-hot opacity-30" />
               <span className="relative inline-flex size-2 rounded-full bg-hot" />
             </span>
-            实时热度
+            AI 精选评分
           </div>
-          <h1 className="mt-1.5 text-[24px] font-bold leading-[1.3] tracking-[-0.01em] text-ink lg:text-[26px]">{withSubject("热点榜")}</h1>
-          <p className="mt-1.5 text-[13.5px] text-ink-3">过去 {hot.windowHours} 小时，思想界讨论最多的 {hot.entries.length || 10} 件事</p>
+          <h1 className="mt-1.5 text-[24px] font-bold leading-[1.3] tracking-[-0.01em] text-ink lg:text-[26px]">{withSubject("大事榜")}</h1>
+          <p className="mt-1.5 text-[13.5px] text-ink-3">
+            近 {Math.max(1, Math.round(hot.windowHours / 24))} 天最值得看的 {hot.entries.length || 10} 件大事
+          </p>
         </div>
         {hot.computedAt && (
           <p className="text-[12px] text-ink-4">
-            <span className="num">{monthDayTime(hot.computedAt)}</span> 更新 · 按讨论热度排序
+            <span className="num">{monthDayTime(hot.computedAt)}</span> 更新 · 按精选评分排序
           </p>
         )}
       </header>
 
       {!lead ? (
         <div className="card rounded-sheet">
-          <EmptyState title="暂时没有热点">还没有足够多来源共同讨论的事件。</EmptyState>
+          <EmptyState title="还没有排得上榜的大事">这一窗口内还没有内容通过精选，稍后会自动更新。</EmptyState>
         </div>
       ) : (
         <>
-          <section aria-label="热度前三" className="grid gap-3 lg:grid-cols-12 lg:gap-4">
+          <section aria-label="评分前三" className="grid gap-3 lg:grid-cols-12 lg:gap-4">
             <div className="grid lg:col-span-7 lg:row-span-2 xl:col-span-8">
               <Lead e={lead} />
             </div>
@@ -270,7 +283,7 @@ export default function HotPage() {
                 <h2 className="text-[15px] font-semibold text-ink">
                   继续看 <span className="num font-normal text-ink-4">No.{pad(others[0]!.rank)}–{pad(others[others.length - 1]!.rank)}</span>
                 </h2>
-                <span className="hidden text-[12px] text-ink-4 lg:block">参与者 · 24 小时走势 · 热度指数</span>
+                <span className="hidden text-[12px] text-ink-4 lg:block">参与者 · 24 小时讨论走势 · 精选评分</span>
               </div>
               <ol className="card divide-y divide-line-soft overflow-hidden">
                 {others.map((e) => (
@@ -285,7 +298,7 @@ export default function HotPage() {
       <details className="disclosure group/method mt-8 text-[12px] text-ink-4">
         <summary className="flex items-center gap-1.5 py-1 transition-colors hover:text-ink-2">
           <IconInfo size={15} />
-          热度是怎么算的？
+          榜单是怎么排的？
           <span className="ml-auto inline-flex items-center gap-0.5">
             <span className="group-open/method:hidden">了解榜单</span>
             <span className="hidden group-open/method:inline">收起</span>
@@ -293,10 +306,11 @@ export default function HotPage() {
           </span>
         </summary>
         <div className="max-w-[760px] space-y-2 pb-2 pl-[21px] pt-2 leading-[1.75] text-ink-3">
-          <p>热度来自参与同一事件的独立账号与机构，重复采集只算一次，并按 24 小时半衰期衰减。它衡量讨论活跃程度，不是报道质量评分。</p>
-          <p>榜单统计过去 48 小时。趋势只比较持续覆盖的同一组信源；它反映我们的监测范围，不代表全网人数。缺少可比历史时，不展示趋势线。</p>
+          <p>按 AI 精选评分排序：取每件事在窗口内所有公开报道中的最高分，从高到低排。同分看最新报道时间。没有通过模型评分的内容不上榜。</p>
+          <p>分数衡量的是这件事值不值得读（证据强度、话题意义），不是讨论热闹程度。评分并列较多时，靠报道时间区分先后。</p>
+          <p>讨论热度来自参与同一事件的独立信源，重复采集只算一次，按 24 小时半衰期衰减：它只作参考，不参与排序。趋势线只比较持续覆盖的同一组信源。</p>
           <p>
-            信源名单只展示可公开阅读的报道来源；讨论参与者还包括只计入热度的账号与机构。同一机构的多个渠道可能合并计数，因此参与者不一定多于信源数。点击事件可查看各方报道与观点。
+            信源名单只展示可公开阅读的报道来源。点击事件可查看各方报道与观点。
           </p>
           <dl className="flex flex-wrap gap-x-5 gap-y-1.5 pt-1">
             {Object.values(BADGES).map((b) => (

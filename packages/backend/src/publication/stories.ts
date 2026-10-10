@@ -4,7 +4,7 @@ import type { HeatPoint, HotResponse, StoryDetail, StoryReportView } from "@aiho
 import { sql } from "../db.ts";
 import { proxiedImage, proxiedImageSet } from "../media/imgproxy.ts";
 import { latestHotRanking, rankingExtras } from "../events/hot-read.ts";
-import { behindSources, sourceClocks } from "../events/hot.ts";
+import { behindSources, hotWindowHours, sourceClocks } from "../events/hot.ts";
 import { storyStatusFor } from "../events/digest.ts";
 import { itemUrl, storyApiUrl, storyUrl } from "./links.ts";
 import { SITE } from "@aihot/industry/site";
@@ -224,7 +224,7 @@ async function queryHotCovers(entries: Array<{ storyId: number; representativeIt
 
 export async function loadHot(): Promise<HotResponse> {
   const ranking = await latestHotRanking();
-  if (!ranking) return { computedAt: null, ruleVersion: null, windowHours: 48, entries: [] };
+  if (!ranking) return { computedAt: null, ruleVersion: null, windowHours: hotWindowHours(), entries: [] };
   const at = new Date(ranking.computedAt);
   const [sparks, covers, extras] = await Promise.all([
     sparklines(
@@ -237,7 +237,8 @@ export async function loadHot(): Promise<HotResponse> {
   return {
     computedAt: ranking.computedAt,
     ruleVersion: ranking.ruleVersion,
-    windowHours: 48,
+    // The window the ranking was actually computed with; the stored evidence is the source of truth.
+    windowHours: Number(ranking.coverage?.windowHours ?? hotWindowHours()),
     entries: ranking.entries.map((e) => {
       const picture = covers.get(e.storyId);
       const coverUrl = picture ? proxiedImage(picture.url, "full") : null;
@@ -245,6 +246,7 @@ export async function loadHot(): Promise<HotResponse> {
       return {
         rank: e.rank,
         story: { publicId: e.storyPublicId, title: e.title },
+        importance: e.importance ?? 0,
         heat: e.heat,
         trend: e.trend,
         trendPct: e.trendPct,

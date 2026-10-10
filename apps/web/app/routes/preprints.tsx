@@ -64,7 +64,7 @@ export default function PreprintsPage() {
         <h1 className="text-[24px] font-semibold leading-[1.3] text-ink">{SECTION.label}</h1>
         <p className="mt-2 text-[13px] leading-relaxed text-ink-3">
           {withSubject("动态")}里的预印本单独收在这里：<span className="font-medium">未经同行评议</span>，数据与结论可能被后续版本推翻，只当线索看。
-          它们不进入精选、热点榜与日报。
+          它们不进入精选、大事榜与日报。
         </p>
       </div>
 

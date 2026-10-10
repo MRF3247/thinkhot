@@ -94,6 +94,7 @@ export interface TimelineCard {
 export interface HotStripEntry {
   rank: number;
   title: string;
+  importance: number;
   heat: number;
   trend: "up" | "down" | "flat" | "new" | "unknown";
   storyPublicId: string | null;
@@ -210,6 +211,8 @@ export interface HotParticipant {
 export interface HotEntryView {
   rank: number;
   story: StoryRef;
+  /** The board's ranking key: the best AI 精选 score among the event's public reports in the window. */
+  importance: number;
   heat: number;
   trend: "up" | "down" | "flat" | "new" | "unknown";
   trendPct: number | null;

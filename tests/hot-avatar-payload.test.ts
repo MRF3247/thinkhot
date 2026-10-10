@@ -48,7 +48,7 @@ test('faces are 精选组 sources by tier (T1, T1.5, T2), at most 6; 氛围组 o
     storyIds.push(story!.id);
     for (const [p, person] of inputs.entries()) await sql`INSERT INTO story_signals(story_id,article_id,participant_key,source_id,kind,observed_at)
       VALUES(${story!.id},${sourceId(p)},${sourceId(p)},${sourceId(p)},${person.kind},${at})`;
-    entries.push({ rank:i+1,storyId:story!.id,storyPublicId:story!.public_id,title:t,heat:10,trend:'flat',trendPct:0,badges:[],
+    entries.push({ rank:i+1,storyId:story!.id,storyPublicId:story!.public_id,title:t,importance:80,heat:10,trend:'flat',trendPct:0,badges:[],
       participantCount:12,sourceCount:8,signalCount:2,reportCount:5,sourceNames:inputs.map((_,n)=>name(n)),latestAt:at.toISOString(),firstReportAt:at.toISOString(),
       representativeItemId:null,representativeUrl:null,representativeSource:null,participants:inputs.map((p,n)=>({name:name(n),kind:p.kind,tier:p.tier})) });
   }

@@ -8,6 +8,8 @@ export interface HotEntry {
   storyId: number;
   storyPublicId: string;
   title: string;
+  /** The board's ranking key: the best AI 精选 score among the event's public reports in the window. */
+  importance: number;
   heat: number;
   /** "unknown": the earlier participants' sources were behind on collection, so there is no comparison. */
   trend: "up" | "down" | "flat" | "new" | "unknown";
@@ -127,6 +129,7 @@ export async function loadHotStrip(): Promise<HotStripEntry[] | null> {
   return ranking.entries.slice(0, 5).map((e) => ({
     rank: e.rank,
     title: e.title,
+    importance: e.importance,
     heat: e.heat,
     trend: e.trend,
     storyPublicId: e.storyPublicId,

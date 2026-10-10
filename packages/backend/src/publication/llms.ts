@@ -36,7 +36,7 @@ export function llmsTxt(opts: { hasDailies: boolean; hasWeekly: boolean; hasMont
   if (opts.hasDailies) lines.push(`- [${daily} RSS](${u("/feed/daily.xml")}): 每天 08:00 北京时间发布的${daily}，保留最近 30 期`);
   lines.push(`- [分类 RSS](${u(`/feed/category/${CATEGORY_KEYS[0]}.xml`)}): 按分类订阅精选，slug 支持 ${CATEGORY_KEYS.join(" / ")}`);
   lines.push(`- [公开 API v1 · 最近资讯](${u("/api/v1/items")}): JSON，支持 mode=selected/all、window=24h/7d、by=timeline/published、category、q、limit 与 cursor`);
-  lines.push(`- [公开 API v1 · 当前热点](${u("/api/v1/hot-topics")}): 热点榜 Top 10；每条含从 1 开始的 rank，links.story 指向事件页`);
+  lines.push(`- [公开 API v1 · 当前大事](${u("/api/v1/hot-topics")}): 大事榜 Top 10；每条含从 1 开始的 rank，links.story 指向事件页`);
   lines.push(`- [公开 API v1 · 事件详情](${u("/api/v1/stories/{publicId}")}): 事件报道时间线与随演化更新的综述；publicId 只来自 hot-topics 的 links.story，不要猜测`);
   if (FEATURES.codexResetMonitor) {
     lines.push(`- [公开 API v1 · Codex 重置监控（轮询用）](${u("/api/v1/codex-resets/recent")}): 最近 7 天与尚未落地的预告，结构与完整快照相同；建议每 5 分钟带 If-None-Match 轮询`);
@@ -54,7 +54,7 @@ export function llmsTxt(opts: { hasDailies: boolean; hasWeekly: boolean; hasMont
   lines.push(`- [隐私说明](${u("/privacy")})`, "");
   lines.push("## 网站主要页面", "");
   lines.push(`- [首页 · 精选](${u("/")}): 每日精选动态`);
-  lines.push(`- [热点榜](${u("/hot")}): 过去 48 小时内被多个独立信源共同讨论的事件`);
+  lines.push(`- [大事榜](${u("/hot")}): 最值得看的事件，按 AI 精选评分排序`);
   lines.push(`- [全部动态](${u("/all")}): 全部公开资讯，可按分类筛选`);
   if (opts.hasDailies) {
     lines.push(`- [${daily}](${u("/daily")}): 每日精编汇总`);
